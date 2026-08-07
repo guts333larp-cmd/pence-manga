@@ -1,4 +1,4 @@
-name: Build Mobile APK
+name: Deploy Web Beta
 on: [push]
 
 jobs:
@@ -12,21 +12,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-
-      - name: Set up Flutter SDK
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.0'
-          channel: 'stable'
-
       - name: Install Flet
-        run: pip install flet flet-cli
+        run: pip install flet
 
-      - name: Build Android APK
-        run: python -m flet build apk --no-config
-s
+      - name: Run Web App Beta
+        run: |
+          python main.py --web
