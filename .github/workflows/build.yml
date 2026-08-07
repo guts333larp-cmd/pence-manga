@@ -30,6 +30,7 @@ jobs:
           pip install flet
           pip install flet-cli
 
-      - name: Build Android APK
+            - name: Build Android APK
         run: |
-          flet build apk
+          flet build apk --no-config
+
